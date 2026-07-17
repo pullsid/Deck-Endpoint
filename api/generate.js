@@ -46,8 +46,8 @@ function bullets(slide, items, x, y, w) {
 }
 
 module.exports = async (req, res) => {
-  if (req.method !== "POST") return res.status(405).json({ error: "POST only" });
-  if ((req.headers["x-deck-secret"] || "") !== SECRET)
+ // if (req.method !== "POST") return res.status(405).json({ error: "POST only" });
+ // if ((req.headers["x-deck-secret"] || "") !== SECRET)
     return res.status(401).json({ error: "bad secret" });
 
   let d = req.body;
