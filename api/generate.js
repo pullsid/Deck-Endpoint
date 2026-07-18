@@ -198,8 +198,10 @@ module.exports = async (req, res) => {
       x: 0.7, y: 2.15, w: 4.6, h: 3.3, rectRadius: 0.06,
       fill: { color: C.ink }, line: { type: "none" },
     });
-    sl.addText(s.market?.search_volume || "Emerging", {
-      x: 1.0, y: 2.75, w: 4.0, h: 1.3, fontSize: 40, bold: true,
+    const sv = String(s.market?.search_volume || "Emerging").slice(0, 14);
+    sl.addText(sv, {
+      x: 1.0, y: 2.75, w: 4.0, h: 1.3,
+      fontSize: sv.length > 9 ? 26 : 40, bold: true, shrinkText: true,
       fontFace: F.head, color: C.accent, margin: 0, valign: "middle",
     });
     sl.addText("DEMAND SIGNAL", {
